@@ -21,6 +21,7 @@
 			    exec-path-from-shell
 			    js2-mode
 			    nodejs-repl
+			    popwin
 			    ) "Default packages")
 ;; prevent auto remove
 (setq package-selected-packages itoshiki/packages)
@@ -89,7 +90,9 @@
        '(("\\.js\\'". js2-mode))
        auto-mode-alist))
 
-
+;; popwin config
+(require 'popwin)
+(popwin-mode 1)
 
 ;; ---------------------------------
 ;; Normal settings
