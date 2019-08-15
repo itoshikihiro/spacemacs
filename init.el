@@ -117,8 +117,6 @@
 (setq-default cursor-type 'bar)
 ;; turn off backup
 (setq make-backup-files nil)
-;; turn off auto save list
-(setq auto-save-default nil)
 ;; delete by selection
 (delete-selection-mode t)
 ;; highlight line
