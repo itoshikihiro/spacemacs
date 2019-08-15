@@ -120,9 +120,9 @@
 ;; turn off auto save list
 (setq auto-save-default nil)
 ;; delete by selection
-(delete-selection-mode 1)
+(delete-selection-mode t)
 ;; highlight line
-(global-hl-line-mode 1)
+(global-hl-line-mode t)
 
 ;; when open, full screen the emacs
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
@@ -136,7 +136,7 @@
 
 ;; org文件中代码高亮
 (require 'org)
-(setq org-src-fontify-natively 1)
+(setq org-src-fontify-natively t)
 
 ;; set C-h C-f for find function
 (global-set-key (kbd "C-h C-f") 'find-function)
