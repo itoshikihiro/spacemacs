@@ -107,16 +107,18 @@
 (defun open-init-file()
   (interactive)
   (find-file "~/.emacs.d/init.el"))
-;; 这一行代码，将函数 open-init-file 绑定到 <f2> 键上
+;; bind <f2> with open-init-file function
 (global-set-key (kbd "<f2>") 'open-init-file)
-;; 更改显示字体大小 16pt
+;; change font size
 (set-face-attribute 'default nil :height 160)
-;; 开启全局 Company 补全
+;; turn on globally company mode
 (global-company-mode 1)
-;; 改变光标类型
+;; change cursor type
 (setq-default cursor-type 'bar)
 ;; turn off backup
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
+;; turn off auto save list
+(setq auto-save-default nil)
 ;; delete by selection
 (delete-selection-mode 1)
 ;; highlight line
@@ -153,3 +155,5 @@
 
 ;; globally activate auto revert mode
 (global-auto-revert-mode t)
+
+
