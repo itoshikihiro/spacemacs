@@ -2,39 +2,12 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
-(when (>= emacs-major-version 24)
-  (require 'package)
-  (package-initialize)
-  ;; package archives list
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
-;; cl - Common Lisp Extension
-(require 'cl)
-(defvar itoshiki/packages '(
-			    company
-			    solarized-theme
-			    monokai-theme
-			    hungry-delete
-			    swiper
-			    counsel
-			    smartparens
-			    exec-path-from-shell
-			    js2-mode
-			    nodejs-repl
-			    popwin
-			    ) "Default packages")
-;; prevent auto remove
-(setq package-selected-packages itoshiki/packages)
-(defun itoshiki/packages-installed-p ()
-  (loop for pkg in itoshiki/packages
-	when (not (package-installed-p pkg)) do (return nil)
-	finally (return t)))
-(unless (itoshiki/packages-installed-p)
-  (message "%s" "Refreshing package database...")
-  (package-refresh-contents)
-  (dolist (pkg itoshiki/packages)
-    (when (not (package-installed-p pkg))
-      (package-install pkg))))
+
+
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'init-packages)
+
+(setq ring-bell-function 'ignore)
 
 ;; installed packages
 (custom-set-variables
@@ -52,20 +25,9 @@
  '(js2-external-variable ((t (:foreground "dark gray")))))
 
 
-;; plugin settings
 
-;; load solarized theme
-;; (load-theme 'solarized-dark t)
-(load-theme 'monokai t)
-
-;; hungry delete
-(require 'hungry-delete)
-(global-hungry-delete-mode)
-
-;; swiper
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
+
 ;; enable this if you want `swiper' to use it
 ;; (setq search-default-mode #'char-fold-to-regexp)
 (global-set-key "\C-s" 'swiper)
@@ -74,25 +36,6 @@
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (global-set-key (kbd "C-h f") 'counsel-describe-function)
 (global-set-key (kbd "C-h v") 'counsel-describe-variable)
-
-;; smartparens
-(require 'smartparens-config)
-;; smartparens globally
-(smartparens-global-mode t)
-
-;; exec-path-from-shell
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
-;; config js2-mode for all javascript
-(setq auto-mode-alist
-      (append
-       '(("\\.js\\'". js2-mode))
-       auto-mode-alist))
-
-;; popwin config
-(require 'popwin)
-(popwin-mode 1)
 
 ;; ---------------------------------
 ;; Normal settings
@@ -114,8 +57,7 @@
 (global-set-key (kbd "<f2>") 'open-init-file)
 ;; change font size
 (set-face-attribute 'default nil :height 160)
-;; turn on globally company mode
-(global-company-mode 1)
+
 ;; change cursor type
 (setq-default cursor-type 'bar)
 ;; turn off backup
@@ -156,5 +98,14 @@
 
 ;; globally activate auto revert mode
 (global-auto-revert-mode t)
+
+;; turn on avvrev-mode
+(abbrev-mode t)
+(define-abbrev-table 'global-abbrev-table '(
+					    ;; signature
+					    ("8jl" "Jie Lin")
+					    ;; internet signature
+					    ("8ih" "itoshikihiro")
+					    ))
 
 
