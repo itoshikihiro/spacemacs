@@ -23,5 +23,8 @@
 ;; bind counsel-git to find all commited files in git
 (global-set-key (kbd "C-c p f") 'counsel-git)
 
+;; bind C-a to org agenda
+(global-set-key (kbd "C-c a") 'org-agenda)
+
 ;; last touch of whole module
 (provide 'init-keybindings)
