@@ -1,10 +1,9 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-
-
+;; load all module by path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
+
+
+;; load modules
+;; load init-packages module
 (require 'init-packages)
 
 (setq ring-bell-function 'ignore)

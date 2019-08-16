@@ -1,6 +1,7 @@
 ;; cl - Common Lisp Extension
 (require 'cl)
 
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
@@ -12,7 +13,6 @@
 ;; package list
 (defvar itoshikihiro/packages '(
 			    company
-			    solarized-theme
 			    monokai-theme
 			    hungry-delete
 			    swiper
@@ -43,8 +43,7 @@
 
 ;; plugin settings
 
-;; load solarized theme
-;; (load-theme 'solarized-dark t)
+;; theme load
 (load-theme 'monokai t)
 
 ;; hungry delete
