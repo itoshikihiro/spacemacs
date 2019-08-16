@@ -31,8 +31,16 @@
 (recentf-mode 1)
 (setq recentf-max-menu-item 25)
 
-;; show matched parathesis
+;; show matched parenthesis
 (add-hook 'emacs-lisp-mode-hook 'show-paren-mode)
+;; improvment of highlight parenthesis
+(define-advice show-paren-function (:around (fn) fix-show-paren-function)
+  "Highlight enclosing parens."
+  (cond ((looking-at-p "\\s(") (funcall fn))
+	(t (save-excursion
+	     (ignore-errors (backward-up-list))
+	     (funcall fn)))))
+
 
 ;; delete by selection
 (delete-selection-mode t)
