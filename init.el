@@ -5,6 +5,8 @@
 ;; load modules
 ;; load init-packages module
 (require 'init-packages)
+;; load init-ui module
+(require 'init-ui)
 
 (setq ring-bell-function 'ignore)
 
@@ -40,14 +42,7 @@
 ;; Normal settings
 ;; ---------------------------------
 
-;; turn off tool-bar
-(tool-bar-mode -1)
-;; turn off scroll-bar
-(scroll-bar-mode -1)
-;; show linum-mode
-(global-linum-mode 1)
-;; turn off splash screen
-(setq inhibit-splash-screen 1)
+
 ;; 快速打开配置文件
 (defun open-init-file()
   (interactive)
@@ -57,17 +52,14 @@
 ;; change font size
 (set-face-attribute 'default nil :height 160)
 
-;; change cursor type
-(setq-default cursor-type 'bar)
+
 ;; turn off backup
 (setq make-backup-files nil)
 ;; delete by selection
 (delete-selection-mode t)
-;; highlight line
-(global-hl-line-mode t)
 
-;; when open, full screen the emacs
-(setq initial-frame-alist (quote ((fullscreen . maximized))))
+
+
 
 ;; use C-x C-r to view recent files
 ;; maximum number of recent files is 25
