@@ -3,7 +3,6 @@
 
 
 (when (>= emacs-major-version 24)
-  (require 'package)
   (package-initialize)
   ;; package archives list
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -59,13 +58,13 @@
 (require 'hungry-delete)
 (global-hungry-delete-mode)
 
+;; smartparens settings
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
 ;; swiper
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
-
-;; smartparens
-(require 'smartparens-config)
-(smartparens-global-mode t)
 
 ;; exec-path-from-shell
 (when (memq window-system '(mac ns x))

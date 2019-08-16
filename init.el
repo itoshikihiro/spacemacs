@@ -1,4 +1,4 @@
-;; load all module by path
+;; load all modules by path
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 
