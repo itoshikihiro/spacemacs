@@ -26,5 +26,8 @@
 ;; bind C-a to org agenda
 (global-set-key (kbd "C-c a") 'org-agenda)
 
+;; indent keybinding
+(global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
+
 ;; last touch of whole module
 (provide 'init-keybindings)
