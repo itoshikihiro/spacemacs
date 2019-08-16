@@ -29,5 +29,10 @@
 ;; indent keybinding
 (global-set-key (kbd "C-M-\\") 'indent-region-or-buffer)
 
+;; hippie keybind
+;; command + /
+(global-set-key (kbd "s-/") 'hippie-expand)
+
+
 ;; last touch of whole module
 (provide 'init-keybindings)
