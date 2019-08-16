@@ -12,21 +12,31 @@
 
 ;; package list
 (defvar itoshikihiro/packages '(
-			    company
-			    monokai-theme
-			    hungry-delete
-			    swiper
-			    counsel
-			    smartparens
-			    exec-path-from-shell
-			    js2-mode
-			    nodejs-repl
-			    popwin
-			    ) "Default packages")
+				;; auto complete
+				company
+				;; theme
+				monokai-theme
+				;; easy delete
+				hungry-delete
+				;; easy search
+				swiper
+				counsel
+				;; auto complete parenthesis
+				smartparens
+				;; required for excuting comments in emcas
+				exec-path-from-shell
+				;; js2 major mode
+				js2-mode
+				;; excute javascript
+				nodejs-repl
+				;; easy search emcas help
+				popwin
+				) "Default packages")
 
 
 ;; prevent auto remove
 (setq package-selected-packages itoshikihiro/packages)
+
 
 ;; packages auto installation part
 (defun itoshikihiro/packages-installed-p ()
@@ -42,7 +52,6 @@
 
 
 ;; plugin settings
-
 ;; theme load
 (load-theme 'monokai t)
 
