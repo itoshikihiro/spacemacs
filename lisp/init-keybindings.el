@@ -33,6 +33,10 @@
 ;; command + /
 (global-set-key (kbd "s-/") 'hippie-expand)
 
+;; 延迟加载
+(with-eval-after-load 'dired
+    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+
 
 ;; last touch of whole module
 (provide 'init-keybindings)

@@ -68,6 +68,21 @@
 					try-complete-lisp-symbol-partially
 					try-complete-lisp-symbol))
 
+;; Dried mode improvment
+;; recursively delete in Dried mode
+(setq dired-recursive-deletes 'always)
+;; recursively copy in Dried mode
+(setq dired-recursive-copies 'always)
+(put 'dired-find-alternate-file 'disabled nil)
+;; use C-x C-j to open current dir with Dried mode
+(require 'dired-x)
+;; if there are two Dried mode window, two windows can copy files directly
+(setq dired-dwin-target 1)
+
+;; change yes or no to y or n
+(fset 'yes-or-no-p 'y-or-n-p)
+
+
 
 ;; last touch of whole module
 (provide 'init-better-defaults)

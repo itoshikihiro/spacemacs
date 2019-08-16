@@ -30,6 +30,8 @@
 				nodejs-repl
 				;; easy search emcas help
 				popwin
+				;; to open view in finder program
+				reveal-in-osx-finder
 				) "Default packages")
 
 
