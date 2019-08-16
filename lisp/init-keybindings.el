@@ -20,5 +20,8 @@
 ;; bind <f2> with open-init-file function
 (global-set-key (kbd "<f2>") 'open-init-file)
 
+;; bind counsel-git to find all commited files in git
+(global-set-key (kbd "C-c p f") 'counsel-git)
+
 ;; last touch of whole module
 (provide 'init-keybindings)
