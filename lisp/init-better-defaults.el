@@ -90,7 +90,20 @@
 ;; change yes or no to y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; disable viewing ^M in html files
+(defun hidden-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (unless buffer-display-table
+    (setq buffer-display-table (make-display-table)))
+  (aset buffer-display-table ?\^M []))
 
+;; remove all ^M in html files
+(defun remove-dos-eol ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t) (replace-match "")))
 
 ;; last touch of whole module
 (provide 'init-better-defaults)
