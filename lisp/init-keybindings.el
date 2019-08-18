@@ -67,5 +67,8 @@
 ;; search regex in the project
 (global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
+;; ctrl w delete a word backwards
+(global-set-key (kbd "C-w") 'backward-kill-word)
+
 ;; last touch of whole module
 (provide 'init-keybindings)

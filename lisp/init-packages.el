@@ -42,6 +42,12 @@
 				iedit
 				;; search project
 				helm-ag
+				;; auto complete for programming language
+				yasnippet
+				;; all snippet for yasnippet
+				yasnippet-snippets
+				;; auto snippet
+				auto-yasnippet
 				) "Default packages")
 
 
@@ -149,7 +155,9 @@
 	  (lambda ()
 	    (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-
+;; active yasnippet in all kinds of programming languages
+(yas-reload-all)
+(add-hook 'prog-mode-hook #'yas-minor-mode)
 
 ;; last touch for the whole file
 (provide 'init-packages)
