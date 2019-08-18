@@ -5,6 +5,7 @@
 (when (>= emacs-major-version 24)
   (package-initialize)
   ;; package archives list
+  (add-to-list 'package-archives '("gnu163" . "http://mirrors.163.com/elpa/gnu/") t)
   (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t))
 
@@ -48,6 +49,8 @@
 				yasnippet-snippets
 				;; auto snippet
 				auto-yasnippet
+				;; vim mode for emacs
+				evil
 				) "Default packages")
 
 
@@ -158,6 +161,9 @@
 ;; active yasnippet in all kinds of programming languages
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; evil mode always on
+(evil-mode 1)
 
 ;; last touch for the whole file
 (provide 'init-packages)
