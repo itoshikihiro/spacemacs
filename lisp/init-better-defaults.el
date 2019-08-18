@@ -47,11 +47,11 @@
 
 (setq enable-recursive-minibuffers t)
 
-
+;; format whole buffer
 (defun indent-buffer()
   (interactive)
   (indent-region (point-min) (point-max)))
-
+;; format whether the whole buffer or the selected region
 (defun indent-region-or-buffer()
   (interactive)
   (save-excursion
@@ -105,7 +105,6 @@
   (goto-char (point-min))
   (while (search-forward "\r" nil t) (replace-match "")))
 
-
 ;; improvment of occur mode
 ;; dwin = do what I mean
 (defun occur-dwim ()
@@ -120,8 +119,9 @@
 	      (regexp-quote sym))))
 	regexp-history)
   (call-interactively 'occur))
-(global-set-key (kbd "M-s o") 'occur-dwim)
 
+;; set the system to utf-8
+(set-language-environment "UTF-8")
 
 ;; last touch of whole module
 (provide 'init-better-defaults)

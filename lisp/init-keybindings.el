@@ -37,6 +37,25 @@
 (with-eval-after-load 'dired
     (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
+;; bind template generator for org mode
+(global-set-key (kbd "C-c r") 'org-capture)
+
+;; occur mode
+(global-set-key (kbd "M-s o") 'occur-dwim)
+
+;; indenting switch for web mode
+(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
+;; multiple entries editing mode
+;; jumping among functions
+(global-set-key (kbd "M-s i") 'counsel-imenu)
+
+;; expand region keybindings
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;; iedit config
+;; multiple entries editing mode 
+(global-set-key (kbd "M-s e") 'iedit-mode)
 
 ;; last touch of whole module
 (provide 'init-keybindings)

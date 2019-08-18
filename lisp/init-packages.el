@@ -120,7 +120,7 @@
 
   (setq indent-tabs-mode nil))
 
-(global-set-key (kbd "C-c t i") 'my-toggle-web-indent)
+
 
 ;; config for js2-refactor
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -147,15 +147,7 @@
 	  (lambda ()
 	    (setq imenu-create-index-function 'js2-imenu-make-index)))
 
-(global-set-key (kbd "M-s i") 'counsel-imenu)
 
-
-;; expand region keybindings
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-
-;; iedit config
-(global-set-key (kbd "M-s e") 'iedit-mode)
 
 ;; last touch for the whole file
 (provide 'init-packages)
