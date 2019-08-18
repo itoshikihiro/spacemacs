@@ -35,7 +35,7 @@
 
 ;; 延迟加载
 (with-eval-after-load 'dired
-    (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
 
 ;; bind template generator for org mode
 (global-set-key (kbd "C-c r") 'org-capture)
@@ -56,6 +56,14 @@
 ;; iedit config
 ;; multiple entries editing mode 
 (global-set-key (kbd "M-s e") 'iedit-mode)
+
+;; remap selecting shortcuts for company mode
+(with-eval-after-load 'company
+  (define-key company-active-map (kbd "M-n") nil)
+  (define-key company-active-map (kbd "M-p") nil)
+  (define-key company-active-map (kbd "C-n") #'company-select-next)
+  (define-key company-active-map (kbd "C-p") #'company-select-previous))
+
 
 ;; last touch of whole module
 (provide 'init-keybindings)
