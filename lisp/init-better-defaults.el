@@ -123,5 +123,34 @@
 ;; set the system to utf-8
 (set-language-environment "UTF-8")
 
+
+;; relative line number
+(defun linum-relative-right-set-margin ()
+  "Make width of right margin the same as left margin"
+  (let* ((win (get-buffer-window))
+     (width (car (window-margins win))))
+    (set-window-margins win width width)))
+
+(defadvice linum-update-current (after linum-left-right-update activate)
+  "Advice to run right margin update"
+  (linum-relative-right-set-margin)
+  (linum-relative-right-update (line-number-at-pos)))
+
+(defadvice linum-delete-overlays (after linum-relative-right-delete activate)
+  "Set margins width to 0"
+  (set-window-margins (get-buffer-window) 0 0))
+
+(defun linum-relative-right-update (line)
+  "Put relative numbers to the right margin"
+  (dolist (ov (overlays-in (window-start) (window-end)))
+    (let ((str (overlay-get ov 'linum-str)))
+      (if str
+      (let ((nstr (number-to-string
+               (abs (- (string-to-number str) line)))))
+        ;; copy string properties
+        (set-text-properties 0 (length nstr) (text-properties-at 0 str) nstr)
+        (overlay-put ov 'after-string
+             (propertize " " 'display `((margin right-margin) ,nstr))))))))
+
 ;; last touch of whole module
 (provide 'init-better-defaults)

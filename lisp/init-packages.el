@@ -51,6 +51,8 @@
 				auto-yasnippet
 				;; vim mode for emacs
 				evil
+				;; evil leader
+				evil-leader
 				) "Default packages")
 
 
@@ -161,6 +163,22 @@
 ;; active yasnippet in all kinds of programming languages
 (yas-reload-all)
 (add-hook 'prog-mode-hook #'yas-minor-mode)
+
+;; evil-leader key settings
+(global-evil-leader-mode)
+(evil-leader/set-key
+ "ff" 'find-file
+ "bb" 'switch-to-buffer
+ "0"  'select-window-0
+ "1"  'select-window-1
+ "2"  'select-window-2
+ "3"  'select-window-3
+ "w/" 'split-window-right
+ "w-" 'split-window-below
+ ":"  'counsel-M-x
+ "wM" 'delete-other-windows
+ )
+
 
 ;; evil mode always on
 (evil-mode 1)

@@ -6,8 +6,6 @@
 (scroll-bar-mode -1)
 ;; turn off splash screen
 (setq inhibit-splash-screen 1)
-;; change cursor type
-(setq-default cursor-type 'bar)
 ;; when open, full screen the emacs
 (setq initial-frame-alist (quote ((fullscreen . maximized))))
 ;; highlight line
