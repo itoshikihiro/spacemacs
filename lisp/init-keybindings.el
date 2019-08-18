@@ -64,6 +64,8 @@
   (define-key company-active-map (kbd "C-n") #'company-select-next)
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
+;; search regex in the project
+(global-set-key (kbd "C-c p s") 'helm-do-ag-project-root)
 
 ;; last touch of whole module
 (provide 'init-keybindings)

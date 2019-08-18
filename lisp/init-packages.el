@@ -40,6 +40,8 @@
 				expand-region
 				;; quickly edit multiple lines
 				iedit
+				;; search project
+				helm-ag
 				) "Default packages")
 
 
