@@ -53,6 +53,8 @@
 				evil
 				;; evil leader
 				evil-leader
+				;; show shortcuts
+				which-key
 				) "Default packages")
 
 
@@ -182,6 +184,9 @@
 
 ;; evil mode always on
 (evil-mode 1)
+
+;; show shortcuts
+(which-key-mode 1)
 
 ;; last touch for the whole file
 (provide 'init-packages)
